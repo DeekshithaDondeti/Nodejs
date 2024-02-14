@@ -5,7 +5,6 @@ import { FindManyOptions, FindOneOptions } from 'typeorm';
 export class OrderItemRepo {
   private connection = getDatabaseConnection();
   orderItemRepository: any;
-  // getOrderItemsByCustomerId: any;
 
   async createOrderItem(OrderId: number, ProductId: number, UnitPrice: number, Quantity: number): Promise<OrderItem> {
     const orderItem = new OrderItem();
@@ -51,7 +50,7 @@ export class OrderItemRepo {
   }
 
   async getOrderItemsByCustomerId(customerId: number): Promise<OrderItem[]> {
-    const connection = getDatabaseConnection(); // Assuming this is your database connection function
+    const connection = getDatabaseConnection(); 
     const query = `
       SELECT oi.*
       FROM order_item oi
